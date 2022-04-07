@@ -1,6 +1,7 @@
 .vscode
-.vscode/
 Content
 DerivedDataCache
 Intermediate
 Saved
+*-workspace
+Binaries
