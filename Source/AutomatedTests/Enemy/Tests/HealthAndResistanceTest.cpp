@@ -3,10 +3,10 @@
 
 #if WITH_DEV_AUTOMATION_TESTS
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestConstructors, "HealthAndResistanceUnitTests.Constructors", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestHeal, "HealthAndResistanceUnitTests.Heal", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestDamageNoRes, "HealthAndResistanceUnitTests.DamageNoRes", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestDamageRes, "HealthAndResistanceUnitTests.DamageRes", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestConstructors, "Project.UnitTests.HealthAndResistanceUnitTests.Constructors", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestHeal, "Project.UnitTests.HealthAndResistanceUnitTests.Heal", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestDamageNoRes, "Project.UnitTests.HealthAndResistanceUnitTests.DamageNoRes", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FHealthAndResistanceTestDamageRes, "Project.UnitTests.HealthAndResistanceUnitTests.DamageRes", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 const auto DefaultHealth = 100.f;
 const TMap<FName, float> DefaultResistances = {};
 const bool DefaultbIsDead = false;
@@ -20,7 +20,7 @@ namespace
 
 		return bIsDefault;
 	}
-	
+
 	template <typename KeyType, typename ValueType>
 	bool AreMapEqual(const TMap<KeyType, ValueType> &Map1, const TMap<KeyType, ValueType> &Map2)
 	{
