@@ -10,7 +10,9 @@
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
-#include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
+#include "XRMotionControllerBase.h"
+#include "AutomatedTests/Enemy/HealthComponent.h"
+#include "AutomatedTests/Enemy/HealthAndResistance.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -78,7 +80,9 @@ AAutomatedTestsCharacter::AAutomatedTestsCharacter()
 	VR_MuzzleLocation = CreateDefaultSubobject<USceneComponent>(TEXT("VR_MuzzleLocation"));
 	VR_MuzzleLocation->SetupAttachment(VR_Gun);
 	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
-	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
+	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));	
+		// Counteract the rotation of the VR gun model.
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
@@ -297,4 +301,9 @@ bool AAutomatedTestsCharacter::EnableTouchscreenMovement(class UInputComponent* 
 	}
 	
 	return false;
+}
+
+const FHealthAndResistance& AAutomatedTestsCharacter::GetHealthAndResistance() const
+{
+	return this->HealthComponent->GetHealthAndResistance();
 }

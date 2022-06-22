@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "HealthAndResistance.generated.h"
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FHealthAndResistance
 {
 
@@ -14,7 +14,7 @@ struct FHealthAndResistance
     FHealthAndResistance(float Health, TMap<FName, float>Resistances, bool bIsDead) : Health(Health), Resistances(Resistances), bIsDead(bIsDead) {};
 
 
-    UPROPERTY(EditAnywhere)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float Health = 100.f;
 
     TMap<FName, float> Resistances;

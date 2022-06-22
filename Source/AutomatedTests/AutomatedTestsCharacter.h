@@ -13,7 +13,12 @@ class UCameraComponent;
 class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
-
+class UHealthComponent;
+struct FHealthAndResistance;
+#define testable 
+#ifdef Testing
+#define testable virtual
+#endif
 UCLASS(config=Game)
 class AAutomatedTestsCharacter : public ACharacter
 {
@@ -51,8 +56,13 @@ class AAutomatedTestsCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UMotionControllerComponent* L_MotionController;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UHealthComponent* HealthComponent;
+
 public:
 	AAutomatedTestsCharacter();
+
+	const FHealthAndResistance& GetHealthAndResistance() const;
 
 protected:
 	virtual void BeginPlay();
